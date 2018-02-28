@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
+  FlatList
 } from 'react-native';
 import Card from './components/Card';
 
@@ -15,7 +16,10 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Card />
+        <FlatList 
+          data={[{name: 'Lucas Besen', description: 'Web Developer'}, {name: 'Gabriel Martins', description: 'Mobile Developer'}]}
+          renderItem={({item}) => <Card studentName={item.name} studentDescription={item.description} />}
+        />
       </View>
     );
   }

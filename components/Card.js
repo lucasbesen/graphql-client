@@ -17,8 +17,8 @@ export default class Card extends Component {
         />
         <View style={styles.info}>
           <View>
-            <Text>Aqui o título</Text>
-            <Text>Aqui a descrição</Text>
+            <Text style={styles.studentName}>{this.props.studentName}</Text>
+            <Text style={styles.textWhite}>{this.props.studentDescription}</Text>
           </View>
           <TouchableOpacity style={styles.userButton}>
             <Image
@@ -37,9 +37,10 @@ const styles = StyleSheet.create({
     flex: 0.12,
     height: 100,
     flexDirection: 'row',
-    backgroundColor: '#02F02F',
+    backgroundColor: '#00AB64',
     alignItems: 'center',
     paddingHorizontal: 10,
+    borderTopWidth: 1,
   },
   info: {
     flex: 1,
@@ -54,14 +55,19 @@ const styles = StyleSheet.create({
     width: 50,
   },
   userButton: {
-    width: 30,
-    borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F9F2F2'
   },
   arrowRightImage: {
     width: 30,
     height: 30,
+  },
+  studentName: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  textWhite: {
+    color: '#FFFFFF',
   }
 });
