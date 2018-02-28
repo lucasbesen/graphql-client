@@ -13,7 +13,7 @@ export default class Card extends Component {
       <View style={styles.card}>
         <Image 
           style={styles.userAvatar}
-          source={require('../img/user.png')}
+          source={require('../../img/user.png')}
         />
         <View style={styles.info}>
           <View>
@@ -23,7 +23,7 @@ export default class Card extends Component {
           <TouchableOpacity style={styles.userButton}>
             <Image
               style={styles.arrowRightImage} 
-              source={require('../img/arrow_right.png')}
+              source={require('../../img/arrow_right.png')}
             />
           </TouchableOpacity>
         </View>
