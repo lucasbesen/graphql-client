@@ -17,7 +17,7 @@ export default class Card extends Component {
         />
         <View style={styles.info}>
           <View>
-            <Text style={styles.studentName}>{this.props.studentName}</Text>
+            <Text style={[styles.textWhite, styles.studentName]}>{this.props.studentName}</Text>
             <Text style={styles.textWhite}>{this.props.studentDescription}</Text>
           </View>
           <TouchableOpacity style={styles.userButton}>
@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
     height: 30,
   },
   studentName: {
-    color: '#FFFFFF',
     fontWeight: 'bold',
     fontSize: 16,
   },
