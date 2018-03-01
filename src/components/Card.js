@@ -10,15 +10,16 @@ import styled from 'styled-components';
 
 export default class Card extends Component {
   render() {
+    const props = this.props;
     return( 
       <CardWrapper>
         <CardImage source={require('../../img/user.png')} />
         <CardInfo>
           <View>
-            <CardName>{this.props.studentName}</CardName>
-            <CardDescription>{this.props.studentDescription}</CardDescription>
+            <CardName>{props.studentName}</CardName>
+            <CardDescription>{props.studentDescription}</CardDescription>
           </View>
-          <CardButton onPress={() => this.props.navigation.navigate('Student')}>
+          <CardButton onPress={() => props.navigation.navigate('Student')}>
             <ArrowImage source={require('../../img/arrow_right.png')} />
           </CardButton>
         </CardInfo>
