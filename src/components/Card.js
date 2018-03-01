@@ -6,67 +6,67 @@ import {
   TouchableOpacity,
   Text
 } from 'react-native';
+import styled from 'styled-components';
 
 export default class Card extends Component {
   render() {
     return( 
-      <View style={styles.card}>
-        <Image 
-          style={styles.userAvatar}
-          source={require('../../img/user.png')}
-        />
-        <View style={styles.info}>
+      <CardWrapper>
+        <CardImage source={require('../../img/user.png')} />
+        <CardInfo>
           <View>
-            <Text style={[styles.textWhite, styles.studentName]}>{this.props.studentName}</Text>
-            <Text style={styles.textWhite}>{this.props.studentDescription}</Text>
+            <CardName>{this.props.studentName}</CardName>
+            <CardDescription>{this.props.studentDescription}</CardDescription>
           </View>
-          <TouchableOpacity style={styles.userButton} onPress={() => this.props.navigation.navigate('Student')}>
-            <Image
-              style={styles.arrowRightImage} 
-              source={require('../../img/arrow_right.png')}
-            />
-          </TouchableOpacity>
-        </View>
-      </View>
+          <CardButton onPress={() => this.props.navigation.navigate('Student')}>
+            <ArrowImage source={require('../../img/arrow_right.png')} />
+          </CardButton>
+        </CardInfo>
+      </CardWrapper>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  card: {
-    flex: 1,
-    height: 100,
-    flexDirection: 'row',
-    backgroundColor: '#00AB64',
-    alignItems: 'center',
-    paddingHorizontal: 10,
-    borderTopWidth: 1,
-  },
-  info: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginLeft: 10,
-    paddingLeft: 10,
-    borderLeftWidth: 1,
-  },
-  userAvatar: {
-    height: 50,
-    width: 50,
-  },
-  userButton: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  arrowRightImage: {
-    width: 30,
-    height: 30,
-  },
-  studentName: {
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  textWhite: {
-    color: '#FFFFFF',
-  }
-});
+const CardWrapper = styled.View`
+  flex: 1;
+  height: 100;
+  flexDirection: row;
+  backgroundColor: #00AB64;
+  alignItems: center;
+  paddingHorizontal: 10;
+  borderTopWidth: 1;
+`;
+
+const CardImage = styled.Image`
+  height: 50;
+  width: 50;
+`;
+
+const CardInfo = styled.View`
+  flex: 1;
+  flexDirection: row;
+  justifyContent: space-between;
+  marginLeft: 10;
+  paddingLeft: 10;
+  borderLeftWidth: 1;
+`;
+
+const CardName = styled.Text`
+  fontWeight: bold;
+  fontSize: 16;
+  color: #FFFFFF;
+`;
+
+const CardDescription = styled.Text`
+  color: #FFFFFF;
+`;
+
+const CardButton = styled.TouchableOpacity`
+  justifyContent: center;
+  alignItems: center;
+`;
+
+const ArrowImage = styled.Image`
+  width: 30;
+  height: 30;
+`;
