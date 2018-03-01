@@ -20,7 +20,7 @@ export default class Card extends Component {
             <Text style={[styles.textWhite, styles.studentName]}>{this.props.studentName}</Text>
             <Text style={styles.textWhite}>{this.props.studentDescription}</Text>
           </View>
-          <TouchableOpacity style={styles.userButton}>
+          <TouchableOpacity style={styles.userButton} onPress={() => this.props.navigation.navigate('Student')}>
             <Image
               style={styles.arrowRightImage} 
               source={require('../../img/arrow_right.png')}
