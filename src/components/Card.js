@@ -12,30 +12,30 @@ export default class Card extends Component {
   render() {
     const props = this.props;
     return( 
-      <CardWrapper>
+      <Wrapper>
         <CardImage source={require('../../img/user.png')} />
         <CardInfo>
           <View>
             <CardName>{props.studentName}</CardName>
             <CardDescription>{props.studentDescription}</CardDescription>
           </View>
-          <CardButton onPress={() => props.navigation.navigate('Student')}>
+          <CardButton onPress={() => props.navigation.navigate('Student', {name: props.studentName, description: props.studentDescription})}>
             <ArrowImage source={require('../../img/arrow_right.png')} />
           </CardButton>
         </CardInfo>
-      </CardWrapper>
+      </Wrapper>
     );
   }
 }
 
-const CardWrapper = styled.View`
+const Wrapper = styled.View`
   flex: 1;
   height: 100;
   flexDirection: row;
   backgroundColor: #00AB64;
   alignItems: center;
+  marginBottom: 7;
   paddingHorizontal: 10;
-  borderTopWidth: 1;
 `;
 
 const CardImage = styled.Image`

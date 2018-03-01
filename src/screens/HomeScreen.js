@@ -8,6 +8,11 @@ import Card from '../components/Card';
 import styled from 'styled-components';
 
 export default class HomeScreen extends Component {
+  static navigationOptions = ({navigation}) => {
+    return {
+      title: 'Home',
+    }
+  };
   render() {
     const props = this.props;
     return (
@@ -23,6 +28,4 @@ export default class HomeScreen extends Component {
 
 const HomeView = styled.View`
   flex: 1;
-  paddingTop: 20;
-  backgroundColor: #F5FCFF;
 `;
