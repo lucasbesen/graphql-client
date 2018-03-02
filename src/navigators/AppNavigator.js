@@ -3,6 +3,7 @@ import { StackNavigator } from 'react-navigation';
 
 import HomeScreen from '../screens/HomeScreen';
 import StudentScreen from '../screens/StudentScreen';
+import LoginScreen from '../screens/LoginScreen';
 
 const screens = {
   Home: {
@@ -10,7 +11,10 @@ const screens = {
   },
   Student: {
     screen: StudentScreen
+  },
+  Login: {
+    screen: LoginScreen
   }
 }
 
-export default StackNavigator(screens, { initialRouteName: 'Home' });
+export default StackNavigator(screens, { initialRouteName: 'Login' });

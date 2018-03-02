@@ -7,38 +7,39 @@ import {
   Text
 } from 'react-native';
 import styled from 'styled-components';
+import UserAvatar from '../assets/img/user.png';
+import ArrowRight from '../assets/img/arrow_right.png';
 
-export default class Card extends Component {
-  render() {
-    const props = this.props;
-    return( 
-      <CardWrapper>
-        <CardImage source={require('../../img/user.png')} />
-        <CardInfo>
-          <View>
-            <CardName>{props.studentName}</CardName>
-            <CardDescription>{props.studentDescription}</CardDescription>
-          </View>
-          <CardButton onPress={() => props.navigation.navigate('Student')}>
-            <ArrowImage source={require('../../img/arrow_right.png')} />
-          </CardButton>
-        </CardInfo>
-      </CardWrapper>
-    );
-  }
-}
+const Card = (props) => (
+  <Wrapper>
+    <CardImage />
+    <CardInfo>
+      <View>
+        <CardName>{props.studentName}</CardName>
+        <CardDescription>{props.studentDescription}</CardDescription>
+      </View>
+      <CardButton onPress={() => props.navigation.navigate('Student', {name: props.studentName, description: props.studentDescription})}>
+        <ArrowImage />
+      </CardButton>
+    </CardInfo>
+  </Wrapper>
+);
 
-const CardWrapper = styled.View`
+export default Card;
+
+const Wrapper = styled.View`
   flex: 1;
   height: 100;
   flexDirection: row;
   backgroundColor: #00AB64;
   alignItems: center;
+  marginBottom: 7;
   paddingHorizontal: 10;
-  borderTopWidth: 1;
 `;
 
-const CardImage = styled.Image`
+const CardImage = styled.Image.attrs({
+  source: UserAvatar,
+})`
   height: 50;
   width: 50;
 `;
@@ -67,7 +68,9 @@ const CardButton = styled.TouchableOpacity`
   alignItems: center;
 `;
 
-const ArrowImage = styled.Image`
+const ArrowImage = styled.Image.attrs({
+  source: ArrowRight,
+})`
   width: 30;
   height: 30;
 `;
