@@ -5,6 +5,7 @@ import {
   TextInput
 } from 'react-native';
 import styled from 'styled-components';
+import LogoImage from '../assets/img/logo.png';
 
 import LoginButton from '../components/LoginButton';
 
@@ -17,31 +18,27 @@ export default class LoginScreen extends Component {
   render() {
     const props = this.props;
     return(
-      <LoginView>
-        <Wrapper>
-          <Logo source={require('../../img/logo.png')}/>
-          <Input placeholder="E-mail" autoCapitalize="none" />
-          <Input placeholder="Password" secureTextEntry={true} autoCapitalize="none" />
-          <LoginButton navigation={props.navigation} />
-        </Wrapper>
-      </LoginView>
+      <Wrapper>
+        <Logo />
+        <Input placeholder="E-mail" autoCapitalize="none" />
+        <Input placeholder="Password" secureTextEntry={true} autoCapitalize="none" />
+        <LoginButton navigation={props.navigation} />
+      </Wrapper>  
     );
   }
 }
 
-const LoginView = styled.View`
-  flex: 1;
-  backgroundColor: #00AB64;
-`;
-
 const Wrapper = styled.View`
+  backgroundColor: #00AB64;
   flex: 1;
   alignItems: center;
-  marginHorizontal: 50;
+  paddingHorizontal: 50;
   justifyContent: center;
 `;
 
-const Logo = styled.Image`
+const Logo = styled.Image.attrs({
+  source: LogoImage,
+})`
   height: 100;
   width: 100;
 `;

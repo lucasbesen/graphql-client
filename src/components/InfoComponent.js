@@ -5,30 +5,28 @@ import {
   Image
 } from 'react-native';
 import styled from 'styled-components';
+import UserAvatar from '../assets/img/user.png';
 
-export default class InfoView extends Component {
-  render() {
-    const props = this.props;
-    return(
-      <Wrapper>
-          <StudentHeader>
-            <StudentImage source={require('../../img/user.png')} />
-            <StudentName>{props.studentName}</StudentName>
-          </StudentHeader>
-          <StudentInfo>
-            <InfoSection>
-              <Title>Name</Title>
-              <Info>{props.studentName}</Info>
-            </InfoSection>
-            <InfoSection>
-              <Title>Description</Title>
-              <Info>{props.studentDescription}</Info>
-            </InfoSection>
-          </StudentInfo>
-        </Wrapper>
-    );
-  }
-}
+const InfoComponent = (props) => (
+  <Wrapper>
+    <StudentHeader>
+      <StudentImage />
+      <StudentName>{props.studentName}</StudentName>
+    </StudentHeader>
+    <StudentInfo>
+      <InfoSection>
+        <Title>Name</Title>
+        <Info>{props.studentName}</Info>
+      </InfoSection>
+      <InfoSection>
+        <Title>Description</Title>
+        <Info>{props.studentDescription}</Info>
+      </InfoSection>
+    </StudentInfo>
+  </Wrapper>  
+);
+
+export default InfoComponent;
 
 const Wrapper = styled.View`
   flex: 1;
@@ -69,7 +67,9 @@ const StudentInfo = styled.View`
   backgroundColor: #FFFFFF;
 `;
 
-const StudentImage = styled.Image`
+const StudentImage = styled.Image.attrs({
+  source: UserAvatar,
+})`
   height: 80;
   width: 80;
   borderWidth: 2;

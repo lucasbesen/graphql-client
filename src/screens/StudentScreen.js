@@ -4,7 +4,7 @@ import {
   View
 } from 'react-native';
 import styled from 'styled-components';
-import InfoView from '../components/InfoView';
+import InfoComponent from '../components/InfoComponent';
 
 export default class StudentScreen extends Component {
   static navigationOptions = ({navigation}) => {
@@ -16,7 +16,7 @@ export default class StudentScreen extends Component {
     const params = this.props.navigation.state.params;
     return (
       <StudentView>
-        <InfoView studentName={params.name} studentDescription={params.description} />
+        <InfoComponent studentName={params.name} studentDescription={params.description} />
       </StudentView>
     );
   }

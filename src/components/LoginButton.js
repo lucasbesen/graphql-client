@@ -5,16 +5,13 @@ import {
 } from 'react-native';
 import styled from 'styled-components';
 
-export default class LoginButton extends Component {
-  render() {
-    const props = this.props;
-    return(
-        <ButtonWrapper onPress={() => props.navigation.navigate('Home')}>
-          <ButtonText>Sign In</ButtonText>
-        </ButtonWrapper>
-    );
-  }
-}
+const LoginButton = (props) => (   
+  <ButtonWrapper onPress={() => props.navigation.navigate('Home')}>
+    <ButtonText>Sign In</ButtonText>
+  </ButtonWrapper>
+);
+
+export default LoginButton;
 
 const ButtonWrapper = styled.TouchableOpacity`
   alignSelf: stretch;
