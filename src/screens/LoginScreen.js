@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Image,
-  TextInput
-} from 'react-native';
 import styled from 'styled-components';
-import LogoImage from '../assets/img/logo.png';
 
+import LogoImage from '../assets/img/logo.png';
 import LoginButton from '../components/LoginButton';
 
 export default class LoginScreen extends Component {

@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  Image
-} from 'react-native';
 import styled from 'styled-components';
+
 import UserAvatar from '../assets/img/user.png';
 
 const InfoComponent = (props) => (

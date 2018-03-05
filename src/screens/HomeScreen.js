@@ -1,28 +1,51 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  FlatList
-} from 'react-native';
-import Card from '../components/Card';
+import { FlatList } from 'react-native';
+import { QueryRenderer, graphql } from 'react-relay';
 import styled from 'styled-components';
+
+import Card from '../components/Card';
+import Error from '../components/Error';
+import env from '../environment/Environment';
+
+const query = graphql`
+  query HomeScreenQuery {
+    allStudents {
+      _id
+      name
+      description
+    }
+  }
+`;
 
 export default class HomeScreen extends Component {
   static navigationOptions = ({navigation}) => {
     return {
-      title: 'Home',
+      title: 'Student Info',
     }
   };
   render() {
-    const props = this.props;
     return (
-      <HomeView>
-        <FlatList
-          data={[{id: 1, name: 'Lucas Besen', description: 'Web Developer'}, {id: 2, name: 'Gabriel Martins', description: 'Mobile Developer'}]}
-          keyExtractor={item => item.id.toString()}
-          renderItem={({item}) => <Card studentName={item.name} studentDescription={item.description} navigation={props.navigation} />}
-        />
-      </HomeView>
+      <QueryRenderer
+        environment={ env }
+        query={ query }
+        render={({error, props}) => {
+          if (error) {
+            return (<Error message={error.message} />);
+          } else if (props) {
+            return (
+              <HomeView>
+                <FlatList
+                  data={props.allStudents}
+                  keyExtractor={item => item._id.toString()}
+                  renderItem={({item}) => <Card studentId={item._id.toString()} studentName={item.name} studentDescription={item.description} navigation={this.props.navigation} />}
+                />
+              </HomeView>
+            );
+          } else {
+            return (<Error message={'Loading...'} />);
+          }
+        }}
+      />
     );
   }
 }
