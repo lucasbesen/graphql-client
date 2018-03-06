@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import {
-  Text,
-  View
-} from 'react-native';
 import styled from 'styled-components';
-import InfoComponent from '../components/InfoComponent';
+
+import GetStudentQuery from '../queries/GetStudentQuery';
 
 export default class StudentScreen extends Component {
   static navigationOptions = ({navigation}) => {
@@ -16,7 +13,7 @@ export default class StudentScreen extends Component {
     const params = this.props.navigation.state.params;
     return (
       <StudentView>
-        <InfoComponent studentName={params.name} studentDescription={params.description} />
+        <GetStudentQuery params={params} />
       </StudentView>
     );
   }

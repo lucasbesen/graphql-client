@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import {
-  View,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  Text
-} from 'react-native';
+import { View } from 'react-native';
 import styled from 'styled-components';
+
 import UserAvatar from '../assets/img/user.png';
 import ArrowRight from '../assets/img/arrow_right.png';
 
@@ -18,7 +13,7 @@ const Card = (props) => (
         <CardName>{props.studentName}</CardName>
         <CardDescription>{props.studentDescription}</CardDescription>
       </View>
-      <CardButton onPress={() => props.navigation.navigate('Student', {name: props.studentName, description: props.studentDescription})}>
+      <CardButton onPress={() => props.navigation.navigate('Student', {id: props.studentId})}>
         <ArrowImage />
       </CardButton>
     </CardInfo>
